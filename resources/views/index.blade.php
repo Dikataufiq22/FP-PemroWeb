@@ -5,7 +5,7 @@
         <!-- Hero Section -->
         <section id="home" class="hero-section relative" style="background-image:url({{ url('assets/bg.jpg') }})">
             <div class="hero-overlay spacing-container">
-                <div class="container">
+                <div class="container relative">
                     <div class="row align-items-center min-vh-100 pt-5">
                         <div class="col-lg-6">
                             <h1 class="display-4 fw-bold text-white mb-4">
@@ -22,17 +22,15 @@
 
                             </div>
                         </div>
-                        <div class="col-lg-6 text-end">
-                            <img src="{{ asset('assets/Talent.png') }}" alt="Hiker" class="img-fluid hero-image">
-                        </div>
                     </div>
+                        <img src="{{ asset('assets/Talent.png') }}" alt="Hiker" class="w-1/2 h-auto absolute right-0 -bottom-[65px] max-lg:hidden" style="z-index: 1;">
                 </div>
             </div>
             <div class="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
         </section>
 
         <!-- Brand Partners -->
-        <section class="py-5 bg-light spacing-container">
+        <section class="py-5 bg-light spacing-container relative" style="z-index: 2;">
             <div class="container">
                 <div class="row justify-content-center align-items-center">
                     <div class="col-6 col-md-2 text-center mb-3">
