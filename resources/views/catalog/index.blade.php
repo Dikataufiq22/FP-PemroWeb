@@ -223,7 +223,7 @@
                                             </div>
                                             <a href=""></a>
                                             <button class="btn btn-success w-100"
-                                                onclick="window.location.href='/booking/booking.html'">
+                                                onclick="window.location.href='/booking/'">
                                                 Sewa Sekarang
                                             </button>
                                         </div>

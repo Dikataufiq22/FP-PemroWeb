@@ -18,7 +18,7 @@
                             </p>
                             <div class="d-flex gap-3 flex-wrap">
                                 <button class="btn btn-success btn-lg px-4"
-                                    onclick="window.location.href='booking/booking.html'">Sewa Sekarang</button>
+                                    onclick="window.location.href='booking/'">Sewa Sekarang</button>
 
                             </div>
                         </div>
