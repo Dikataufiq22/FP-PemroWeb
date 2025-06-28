@@ -1,5 +1,5 @@
 // Booking System JavaScript
-console.log('jalan')
+
 document.addEventListener("DOMContentLoaded", () => {
     let selectedItems = []
     let currentStep = 1
@@ -117,11 +117,12 @@ document.addEventListener("DOMContentLoaded", () => {
       selectedCount.textContent = selectedItems.length
   
       if (selectedItems.length === 0) {
-        selectedItemsList.innerHTML = 
-                  <div class="empty-state text-center py-4">
-                      <i class="fas fa-shopping-cart fa-3x text-muted mb-3"></i>
-                      <p class="text-muted">Belum ada item yang dipilih</p>
-                  </div>
+        selectedItemsList.innerHTML = `
+    <div class="empty-state text-center py-4">
+        <i class="fas fa-shopping-cart fa-3x text-muted mb-3"></i>
+        <p class="text-muted">Belum ada item yang dipilih</p>
+    </div>
+`;
               
       } else {
         selectedItemsList.innerHTML = selectedItems
@@ -132,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
                           <img src="${item.image}" alt="${item.name}" class="selected-item-img">
                           <div class="selected-item-details">
                               <h6>${item.name}</h6>
-                              <div class="selected-item-price">$${item.price}/hari</div>
+                              <div class="selected-item-price">Rp.${item.price}/hari</div>
                           </div>
                       </div>
                       <div class="quantity-controls">
@@ -211,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
                       <img src="${item.image}" alt="${item.name}" class="sidebar-item-img">
                       <div class="sidebar-item-info">
                           <div class="sidebar-item-name">${item.name}</div>
-                          <div class="sidebar-item-price">$${item.price}/hari</div>
+                          <div class="sidebar-item-price">Rp.${item.price}/hari</div>
                           <div class="sidebar-item-qty">Qty: ${item.quantity}</div>
                       </div>
                   </div>
@@ -226,10 +227,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const total = subtotal * Math.max(rentalDays, 1) + delivery
       const deposit = Math.round(total * 0.5)
   
-      subtotalPrice.textContent = `$${subtotal}`
-      deliveryFee.textContent = `$${delivery}`
-      totalPrice.textContent = `$${total}`
-      depositAmount.textContent = `$${deposit}`
+      subtotalPrice.textContent = `Rp.${subtotal}`
+      deliveryFee.textContent = `Rp.${delivery}`
+      totalPrice.textContent = `Rp.${total}`
+      depositAmount.textContent = `Rp.${deposit}`
     }
   
     function validateStep2() {
@@ -306,7 +307,7 @@ document.addEventListener("DOMContentLoaded", () => {
                           <small class="text-muted">Qty: ${item.quantity}</small>
                       </div>
                   </div>
-                  <div class="text-success fw-bold">$${item.price * item.quantity}/hari</div>
+                  <div class="text-success fw-bold">Rp.${item.price * item.quantity}/hari</div>
               </div>
           `,
         )
@@ -526,12 +527,12 @@ document.addEventListener("DOMContentLoaded", () => {
   })
   
   // Additional utility functions
-  function formatCurrency(amount) {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-    }).format(amount)
-  }
+ function formatCurrency(amount) {
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+  }).format(amount);
+}
   
   function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/

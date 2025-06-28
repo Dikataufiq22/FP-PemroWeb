@@ -1,6 +1,7 @@
 @extends('layouts.app')
-
+@vite('resources/js/app.js')
 @section('contents')
+
     <div>
         <!-- Hero Section -->
         <section id="home" class="hero-section relative" style="background-image:url({{ url('assets/bg.jpg') }})">

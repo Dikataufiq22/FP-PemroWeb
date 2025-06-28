@@ -48,11 +48,12 @@ class ProductResource extends Resource
                     'tersedia' => 'Tersedia',
                     'tidak-tersedia' => 'Tidak Tersedia',
                 ]),
-                FileUpload::make('image')
-                ->image()
-                ->disk('public')
-                ->visibility('public')
-                ->imageEditor(),
+      FileUpload::make('image')
+    ->image()
+    ->directory('products') // taruh semua di folder products
+    ->disk('public')
+    ->visibility('public')
+    ->imageEditor(),
             ]);
     }
 
@@ -60,8 +61,7 @@ class ProductResource extends Resource
     {
         return $table
             ->columns([
-            Tables\Columns\TextColumn::make('name')
-            ->searchable(),
+            Tables\Columns\TextColumn::make('name')->searchable(),
             Tables\Columns\TextColumn::make('description'),
             Tables\Columns\TextColumn::make('category'),
             Tables\Columns\TextColumn::make('price'),

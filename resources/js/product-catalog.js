@@ -421,6 +421,7 @@ class ProductCatalog {
   }
 
   createDetailPageContainer() {
+    
     // Create detail page container if it doesn't exist
     if (!document.getElementById("productDetailPage")) {
       const detailPage = document.createElement("div")
@@ -1059,6 +1060,7 @@ function viewProduct(productId) {
 document.addEventListener("DOMContentLoaded", () => {
   productCatalog = new ProductCatalog()
 })
+
 // Mock shoppingCart object for demonstration purposes
 const shoppingCart = {
   addToCart: (productId, name, price, image, quantity, duration) => {

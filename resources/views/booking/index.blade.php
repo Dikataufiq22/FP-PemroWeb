@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@vite('resources/js/app.js')
 @section('contents')
 <body>
   <!-- Booking Header -->
@@ -82,129 +82,39 @@
 
               <!-- Available Products -->
               <div class="available-products">
-                <h6>Peralatan Tersedia</h6>
-                <div class="row" id="productList">
-                  <!-- Product 1 -->
-                  <div class="col-md-6 mb-3" data-category="tenda">
-                    <div class="product-item" data-id="1" data-name="Tenda Dome 4 Orang - Borneo" data-price="7" data-image="tent1.jpg">
-                      <div class="product-content">
-                        <img src="tent1.jpg" alt="Tenda Dome" class="product-img">
-                        <div class="product-info">
-                          <h6 class="product-name">Tenda Dome 4 Orang - Borneo</h6>
-                          <div class="product-price">$7<span>/hari</span></div>
-                          <div class="product-status">
-                            <i class="fas fa-check-circle text-success"></i>
-                            <span>Tersedia</span>
-                          </div>
-                        </div>
-                        <button type="button" class="btn btn-outline-success btn-sm add-item">
-                          <i class="fas fa-plus"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Product 2 -->
-                  <div class="col-md-6 mb-3" data-category="backpack">
-                    <div class="product-item" data-id="2" data-name="Carrier 60L - Osprey Atmos" data-price="12" data-image="backpack1.jpg">
-                      <div class="product-content">
-                        <img src="backpack1.jpg" alt="Carrier" class="product-img">
-                        <div class="product-info">
-                          <h6 class="product-name">Carrier 60L - Osprey Atmos</h6>
-                          <div class="product-price">$12<span>/hari</span></div>
-                          <div class="product-status">
-                            <i class="fas fa-check-circle text-success"></i>
-                            <span>Tersedia</span>
-                          </div>
-                        </div>
-                        <button type="button" class="btn btn-outline-success btn-sm add-item">
-                          <i class="fas fa-plus"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Product 3 -->
-                  <div class="col-md-6 mb-3" data-category="sleeping">
-                    <div class="product-item" data-id="3" data-name="Sleeping Bag -5°C - Speedo" data-price="4" data-image="sleeping-bag1.jpg">
-                      <div class="product-content">
-                        <img src="sleeping-bag1.jpg" alt="Sleeping Bag" class="product-img">
-                        <div class="product-info">
-                          <h6 class="product-name">Sleeping Bag -5°C - Speedo</h6>
-                          <div class="product-price">$4<span>/hari</span></div>
-                          <div class="product-status">
-                            <i class="fas fa-check-circle text-success"></i>
-                            <span>Tersedia</span>
-                          </div>
-                        </div>
-                        <button type="button" class="btn btn-outline-success btn-sm add-item">
-                          <i class="fas fa-plus"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Product 4 -->
-                  <div class="col-md-6 mb-3" data-category="climbing">
-                    <div class="product-item" data-id="4" data-name="Trekking Pole Carbon - Eiger" data-price="3" data-image="hiking-pole1.jpg">
-                      <div class="product-content">
-                        <img src="hiking-pole1.jpg" alt="Trekking Pole" class="product-img">
-                        <div class="product-info">
-                          <h6 class="product-name">Trekking Pole Carbon - Eiger</h6>
-                          <div class="product-price">$3<span>/hari</span></div>
-                          <div class="product-status">
-                            <i class="fas fa-check-circle text-success"></i>
-                            <span>Tersedia</span>
-                          </div>
-                        </div>
-                        <button type="button" class="btn btn-outline-success btn-sm add-item">
-                          <i class="fas fa-plus"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Product 5 -->
-                  <div class="col-md-6 mb-3" data-category="cooking">
-                    <div class="product-item" data-id="5" data-name="Kompor Portable Gas - MSR" data-price="5" data-image="stove1.jpg">
-                      <div class="product-content">
-                        <img src="stove1.jpg" alt="Kompor Portable" class="product-img">
-                        <div class="product-info">
-                          <h6 class="product-name">Kompor Portable Gas - MSR</h6>
-                          <div class="product-price">$5<span>/hari</span></div>
-                          <div class="product-status">
-                            <i class="fas fa-check-circle text-success"></i>
-                            <span>Tersedia</span>
-                          </div>
-                        </div>
-                        <button type="button" class="btn btn-outline-success btn-sm add-item">
-                          <i class="fas fa-plus"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Product 6 -->
-                  <div class="col-md-6 mb-3" data-category="lighting">
-                    <div class="product-item" data-id="6" data-name="Headlamp LED 400 Lumens" data-price="2" data-image="headlamp1.jpg">
-                      <div class="product-content">
-                        <img src="headlamp1.jpg" alt="Headlamp" class="product-img">
-                        <div class="product-info">
-                          <h6 class="product-name">Headlamp LED 400 Lumens</h6>
-                          <div class="product-price">$2<span>/hari</span></div>
-                          <div class="product-status">
-                            <i class="fas fa-exclamation-circle text-warning"></i>
-                            <span>Stok Terbatas</span>
-                          </div>
-                        </div>
-                        <button type="button" class="btn btn-outline-success btn-sm add-item">
-                          <i class="fas fa-plus"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+  <h6>Peralatan Tersedia</h6>
+  <div class="row" id="productList">
+    @foreach ($products as $product)
+      <div class="col-md-6 mb-3" data-category="{{ $product->category ?? '' }}">
+        <div class="product-item"
+             data-id="{{ $product->id }}"
+             data-name="{{ $product->name }}"
+             data-price="{{ $product->price }}"
+             data-image="{{ asset('storage/' . $product->image) }}">
+          <div class="product-content border rounded p-2 d-flex align-items-center">
+            <img src="{{ asset('storage/' . $product->image) }}"alt="{{ $product->name }}" class="product-img rounded me-3" style="width:80px; height:80px; object-fit:cover;">
+            <div class="product-info flex-grow-1">
+              <h6 class="product-name mb-1">{{ $product->name }}</h6>
+              <div class="product-price text-success fw-bold">
+                Rp {{ number_format($product->price) }}<span class="text-muted">/hari</span>
               </div>
+              <div class="product-status small text-muted">
+                <i class="fas fa-check-circle text-success me-1"></i>
+                <span>Tersedia</span>
+              </div>
+            </div>
+            <button type="button" class="btn btn-outline-success btn-sm add-item ms-2">
+              <i class="fas fa-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    @endforeach
+  </div>
+</div>
+
+
+                  
 
               <div class="step-navigation">
                 <button type="button" class="btn btn-success" id="nextStep1" disabled>
@@ -553,68 +463,13 @@
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="footer py-5 text-white">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-3 mb-4">
-          <img src="logo-white.png" alt="ExploreX" height="30" class="mb-3">
-          <p>Explore adventures with proper preparation. We provide all the equipment you need for an enjoyable outdoor experience.</p>
-          <div class="social-icons">
-            <a href="#" class="me-2"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="me-2"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="me-2"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-          </div>
-        </div>
-        
-        <div class="col-lg-3 mb-4">
-          <h5>Address</h5>
-          <p>Camping Center, Sentani</p>
-          <h5>Email</h5>
-          <p>hello@explorex.com</p>
-          <h5>Phone</h5>
-          <p>+1-987-654-3210</p>
-        </div>
-        
-        <div class="col-lg-3 mb-4">
-          <h5>Useful links</h5>
-          <ul class="list-unstyled">
-            <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
-            <li><a href="#" class="text-white text-decoration-none">About Us</a></li>
-            <li><a href="#" class="text-white text-decoration-none">Services</a></li>
-            <li><a href="#" class="text-white text-decoration-none">How to Rent</a></li>
-            <li><a href="#" class="text-white text-decoration-none">FAQ</a></li>
-          </ul>
-        </div>
-        
-        <div class="col-lg-3 mb-4">
-          <h5>Terms</h5>
-          <ul class="list-unstyled">
-            <li><a href="#" class="text-white text-decoration-none">Privacy Policy</a></li>
-            <li><a href="#" class="text-white text-decoration-none">Terms of Service</a></li>
-            <li><a href="#" class="text-white text-decoration-none">Refund Policy</a></li>
-            <li><a href="#" class="text-white text-decoration-none">Sitemap</a></li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="border-top border-secondary pt-4 mt-4">
-        <p class="text-center mb-0">© Copyright ExploreX 2023</p>
-      </div>
-    </div>
-  </footer>
-
+ 
+    
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  
 </body>
 @endsection
 
 @push('styles')
     @vite(['resources/css/booking-style.css'])
 @endpush
-@push('scripts')
-    <script src="{{ asset('resources/js/booking-script.js') }}"></script>
-    <script src="{{ asset('resources/js/navbar.js') }}"></script>
-    <script src="{{ asset('resources/js/contact-wa.js') }}"></script>
-@endpush
+

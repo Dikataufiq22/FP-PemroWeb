@@ -17,9 +17,10 @@
 
     <!-- Styles & Scripts -->
     @stack('styles')
-    @vite(['resources/css/styles.css'])
+    @vite(['resources/css/styles.css']) 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @vite(['resources/js/navbar.js'])
+    
 
 </head>
 
