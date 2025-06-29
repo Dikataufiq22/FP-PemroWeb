@@ -12,11 +12,10 @@ Route::get('/', [ProductController::class, 'index'], function () {
     return view('index');
 });
 
-Route::get('/booking', [BookingController::class, 'index'])->name('booking.index');
+Route::get('/booking', [BookingController::class, 'index'])->name('booking.index')->middleware(['auth', 'verified'])->name('booking.index');
+Route::post('/add-booking', action: [BookingController::class, 'addBooking'])->name('booking.add');
 
-Route::get('/catalog', [ProductController::class, 'catalog'], function () {
-    return view('catalog.index');
-})->middleware(['auth', 'verified'])->name('catalog');
+Route::get('/catalog', [CatalogController::class, 'index'])->middleware(['auth', 'verified'])->name('catalog.index');
 
 
 Route::get('/dashboard', function () {
@@ -29,7 +28,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog.index');
 
 
 

@@ -153,7 +153,7 @@
                                             <i class="fas fa-check-circle text-success"></i>
                                             <span>{{ $product->status }}</span>
                                         </div>
-                                        <a href="{{ route('booking.index') }}" class="btn btn-success w-100">
+                                        <a href="{{ url('booking') }}?q={{ $product->name }}" class="btn btn-success w-100">
                                             Sewa Sekarang
                                         </a>
                                     </div>

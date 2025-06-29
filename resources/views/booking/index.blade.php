@@ -38,6 +38,7 @@
         <!-- Booking Form -->
         <div class="col-lg-8">
           <form id="bookingForm" class="booking-form">
+            @csrf
             <!-- Step 1: Pilih Item -->
             <div class="form-step active" id="step1">
               <div class="step-header">
@@ -136,13 +137,13 @@
                 <div class="col-md-6 mb-4">
                   <div class="form-group">
                     <label class="form-label required">Tanggal Mulai</label>
-                    <input type="date" class="form-control" id="startDate" required>
+                    <input type="date" class="form-control" id="startDate" name="start_date" required>
                   </div>
                 </div>
                 <div class="col-md-6 mb-4">
                   <div class="form-group">
                     <label class="form-label required">Tanggal Selesai</label>
-                    <input type="date" class="form-control" id="endDate" required>
+                    <input type="date" class="form-control" id="endDate" name="end_date" required>
                   </div>
                 </div>
 
@@ -162,23 +163,23 @@
                 </div>
                 <div class="col-md-6 mb-3">
                   <label class="form-label required">Nama Lengkap</label>
-                  <input type="text" class="form-control" id="fullName" required>
+                  <input type="text" class="form-control" id="fullName" name="full_name" required>
                 </div>
                 <div class="col-md-6 mb-3">
                   <label class="form-label required">Email</label>
-                  <input type="email" class="form-control" id="email" required>
+                  <input type="email" class="form-control" id="email" name="email" required>
                 </div>
                 <div class="col-md-6 mb-3">
                   <label class="form-label required">No. Telepon</label>
-                  <input type="tel" class="form-control" id="phone" required>
+                  <input type="tel" class="form-control" id="phone" name="phone" required>
                 </div>
                 <div class="col-md-6 mb-3">
                   <label class="form-label required">No. KTP</label>
-                  <input type="text" class="form-control" id="idNumber" required>
+                  <input type="text" class="form-control" id="idNumber" name="id_number" required>
                 </div>
                 <div class="col-12 mb-3">
                   <label class="form-label required">Alamat</label>
-                  <textarea class="form-control" id="address" rows="3" required></textarea>
+                  <textarea class="form-control" id="address" rows="3" name="address" required></textarea>
                 </div>
 
                 <!-- Pickup/Delivery Options -->
@@ -186,14 +187,14 @@
                   <h5>Metode Pengambilan</h5>
                   <div class="pickup-options">
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="pickupMethod" id="pickup" value="pickup" checked>
+                      <input class="form-check-input" type="radio" name="pickup_method" id="pickup" value="pickup" checked>
                       <label class="form-check-label" for="pickup">
                         <strong>Ambil di Toko</strong>
                         <div class="text-muted small">Gratis - Ambil langsung di lokasi kami</div>
                       </label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="pickupMethod" id="delivery" value="delivery">
+                      <input class="form-check-input" type="radio" name="pickup_method" id="delivery" value="delivery">
                       <label class="form-check-label" for="delivery">
                         <strong>Antar ke Lokasi</strong>
                         <div class="text-muted small">+$10 - Kami antar ke alamat Anda</div>
@@ -205,7 +206,7 @@
                 <!-- Store Location (if pickup) -->
                 <div class="col-12 mb-3" id="storeLocation">
                   <label class="form-label">Lokasi Toko</label>
-                  <select class="form-select" id="storeSelect">
+                  <select class="form-select" id="storeSelect" name="store_select">
                     <option value="sentani">Camping Center Sentani - Jl. Raya Sentani No. 123</option>
                     <option value="jakarta">ExploreX Jakarta - Jl. Sudirman No. 456</option>
                     <option value="bandung">ExploreX Bandung - Jl. Dago No. 789</option>
@@ -215,7 +216,7 @@
                 <!-- Delivery Address (if delivery) -->
                 <div class="col-12 mb-3 d-none" id="deliveryAddress">
                   <label class="form-label">Alamat Pengiriman</label>
-                  <textarea class="form-control" id="deliveryAddressText" rows="3" placeholder="Masukkan alamat lengkap untuk pengiriman"></textarea>
+                  <textarea class="form-control" name="delivery_address" id="deliveryAddressText" rows="3" placeholder="Masukkan alamat lengkap untuk pengiriman"></textarea>
                 </div>
 
                 <!-- Emergency Contact -->
@@ -224,17 +225,17 @@
                 </div>
                 <div class="col-md-6 mb-3">
                   <label class="form-label required">Nama Kontak Darurat</label>
-                  <input type="text" class="form-control" id="emergencyName" required>
+                  <input type="text" class="form-control" id="emergencyName" name="emergency_name"required>
                 </div>
                 <div class="col-md-6 mb-3">
                   <label class="form-label required">No. Telepon Darurat</label>
-                  <input type="tel" class="form-control" id="emergencyPhone" required>
+                  <input type="tel" class="form-control" id="emergencyPhone" name="emergency_phone" required>
                 </div>
 
                 <!-- Special Notes -->
                 <div class="col-12 mb-3">
                   <label class="form-label">Catatan Khusus (Opsional)</label>
-                  <textarea class="form-control" id="specialNotes" rows="3" placeholder="Masukkan catatan atau permintaan khusus"></textarea>
+                  <textarea class="form-control" id="specialNotes" name="special_notes" rows="3" placeholder="Masukkan catatan atau permintaan khusus"></textarea>
                 </div>
               </div>
 
