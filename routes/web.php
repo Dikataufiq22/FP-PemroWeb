@@ -3,14 +3,16 @@
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\CatalogController;
 use Illuminate\Support\Facades\Route;
+
 
 
 Route::get('/', [ProductController::class, 'index'], function () {
     return view('index');
 });
 
-Route::get('/booking', [BookingController::class, 'index']);
+Route::get('/booking', [BookingController::class, 'index'])->name('booking.index');
 
 Route::get('/catalog', [ProductController::class, 'catalog'], function () {
     return view('catalog.index');
@@ -26,6 +28,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog.index');
+
 
 
 require __DIR__.'/auth.php';

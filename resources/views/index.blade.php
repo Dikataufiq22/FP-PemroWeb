@@ -31,7 +31,7 @@
         </section>
 
         <!-- Brand Partners -->
-        <section class="py-5 bg-light spacing-container relative" style="z-index: 2;">
+        <section class="py-5 bg-light">
             <div class="container">
                 <div class="row justify-content-center align-items-center">
                     <div class="col-6 col-md-2 text-center mb-3">
@@ -58,40 +58,33 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6 mb-4 mb-lg-0">
-                        <img src="{{ asset('assets/bg2.jpg') }}" alt="About Us" class="img-fluid rounded">
+                        <img src="{{ asset('assets/bg2.jpg') }}" alt="Tentang Kami" class="img-fluid rounded">
                     </div>
-                    <div class="col-lg-6">
-                        <h2 class="fw-bold mb-4">About Us</h2>
-                        <p class="mb-3">
-                            <strong>ExploreX</strong> is a trusted outdoor equipment rental service provider
-                            dedicated to supporting your adventures in the wild. We provide a
-                            comprehensive range of high-quality outdoor gear including tents,
-                            mattresses, carriers, portable stoves, and other camping
-                            equipment to meet your outdoor activity needs, from mountain
-                            climbing to beach camping, jungle trekking, and much more.
+                    <div class="col-lg-6 text-center">
+                        <h2 class="fw-bold mb-4 text-center display-6">Tentang Kami</h2>
+                        <p class="mb-3 text-justify" style="text-indent: 2em;">
+                            <strong>ExploreX</strong> adalah penyedia layanan sewa perlengkapan outdoor terpercaya yang berdedikasi 
+                            untuk mendukung petualangan Anda di alam bebas. Kami menyediakan berbagai perlengkapan outdoor berkualitas 
+                            tinggi termasuk tenda, matras, carrier, kompor portabel, dan perlengkapan berkemah lainnya untuk memenuhi 
+                            kebutuhan aktivitas luar ruang Anda mulai dari mendaki gunung, berkemah di pantai, menjelajah hutan, 
+                            dan masih banyak lagi.
                         </p>
-                        <p class="mb-3">
-                            Founded by nature lovers, we understand how important safe,
-                            comfortable, and reliable practical equipment is when exploring nature.
-                            Therefore, all of our equipment is routinely maintained and ready
-                            to use, ensuring the best experience for our customers.
+                        <p class="mb-3 text-justify">
+                            Didirikan oleh para pecinta alam, kami memahami betapa pentingnya peralatan yang aman, nyaman, dan praktis 
+                            saat menjelajah alam. Oleh karena itu, semua peralatan kami dirawat secara rutin dan siap digunakan demi
+                             memberikan pengalaman terbaik bagi pelanggan kami.
                         </p>
-                        <p class="mb-4">
-                            We are committed to being your most trusted outdoor equipment rental
-                            partner. With an easy rental system, affordable prices, and friendly
-                            service, we want to be a part of every step of your adventure.
-                        </p>
-                        <p class="text-success fw-bold">
-                            Discover the freedom to explore without having to buy. Just rent
-                            at ExploreX!
+                        <p class="text-success fw-bold text-justify">
+                            Temukan kebebasan menjelajah tanpa harus membeli. Cukup sewa di ExploreX!
                         </p>
                     </div>
                 </div>
             </div>
         </section>
 
+
         <!-- Product Catalog -->
-        <section id="catalog" class="py-5 bg-light ">
+        <section id="catalog" class="py-5 spacing-container">
             <div class="container spacing-container">
                 <div class="row mb-5">
                     <div class="col-lg-8">
@@ -274,20 +267,19 @@
         <!-- FAQ -->
         <section id="faq" class="py-5 spacing-container">
             <div class="container">
-                <h2 class="fw-bold mb-5">Frequently Asked Questions</h2>
+                <h2 class="fw-bold mb-5">Pertanyaan yang Sering Diajukan</h2>
                 <div class="accordion" id="faqAccordion">
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#faq1">
-                                How to order outdoor equipment?
+                                Bagaimana cara memesan peralatan outdoor?
                             </button>
                         </h2>
                         <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
                             <div class="accordion-body">
-                                You can order through our website by selecting the equipment you need, checking
-                                availability,
-                                and completing the booking form with your rental dates and contact information.
+                                Anda dapat memesan melalui situs web kami dengan memilih peralatan yang Anda butuhkan,
+                                 memeriksa ketersediaan, dan mengisi formulir pemesanan dengan tanggal sewa dan informasi kontak Anda.
                             </div>
                         </div>
                     </div>
@@ -295,13 +287,13 @@
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#faq2">
-                                Do I need to pay a deposit?
+                                Apakah saya perlu membayar uang jaminan?
                             </button>
                         </h2>
                         <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                             <div class="accordion-body">
-                                Yes, we require a security deposit that will be refunded upon return of the equipment in
-                                good condition.
+                                Ya, kami memerlukan deposit keamanan yang akan dikembalikan setelah peralatan 
+                                dikembalikan dalam kondisi baik.
                             </div>
                         </div>
                     </div>
@@ -309,13 +301,13 @@
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#faq3">
-                                Can I rent equipment for the same day?
+                                Bisakah saya menyewa peralatan untuk hari yang sama?
                             </button>
                         </h2>
                         <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                             <div class="accordion-body">
-                                Same-day rentals are subject to availability. We recommend booking at least 24 hours in
-                                advance.
+                               Sewa pada hari yang sama tergantung pada ketersediaan. 
+                               Kami sarankan untuk memesan setidaknya 24 jam sebelumnya.
                             </div>
                         </div>
                     </div>
@@ -323,13 +315,13 @@
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#faq4">
-                                Can the equipment be delivered to my location?
+                                Apakah peralatan dapat dikirim ke lokasi saya?
                             </button>
                         </h2>
                         <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                             <div class="accordion-body">
-                                Yes, we offer delivery services within certain areas. Delivery fees may apply depending on
-                                your location.
+                                Ya, kami menawarkan layanan pengiriman di area tertentu. 
+                                Biaya pengiriman mungkin berlaku tergantung lokasi Anda.
                             </div>
                         </div>
                     </div>
@@ -337,13 +329,13 @@
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#faq5">
-                                What if the equipment is damaged or lost during rental?
+                                Bagaimana jika peralatan rusak atau hilang selama masa sewa?
                             </button>
                         </h2>
                         <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                             <div class="accordion-body">
-                                Customers are responsible for any damage or loss. Repair or replacement costs will be
-                                deducted from your deposit.
+                                Pelanggan bertanggung jawab atas segala kerusakan atau kehilangan. 
+                                Biaya perbaikan atau penggantian akan dipotong dari deposit Anda.
                             </div>
                         </div>
                     </div>

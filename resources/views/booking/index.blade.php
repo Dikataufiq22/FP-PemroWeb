@@ -7,8 +7,9 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-md-8">
-          <h2 class="mb-1">Booking Peralatan Outdoor</h2>
-          <p class="text-muted mb-0">Lengkapi form di bawah untuk melakukan pemesanan</p>
+          <h2 class="display-6 fw-bold mb-1">Booking Peralatan Outdoor</h2>
+          <p class="text-muted mb-0">Silakan isi formulir berikut dengan lengkap dan benar untuk melanjutkan proses pemesanan Anda. 
+          Informasi yang Anda berikan akan membantu kami memproses pesanan Anda dengan cepat dan akurat.</p>
         </div>
         <div class="col-md-4">
           <div class="booking-steps">
