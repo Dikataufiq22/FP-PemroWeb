@@ -102,7 +102,7 @@ class ProductResource extends Resource
                         ->placeholder('Contoh: Tenda kapasitas 2 orang, tahan air, ringan')
                         ->required()
                         ->rows(4)
-                        ->maxLength(1000),
+                        ->maxLength(2000),
                 ]),
 
             Section::make('Gambar Produk')

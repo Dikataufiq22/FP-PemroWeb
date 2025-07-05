@@ -197,7 +197,7 @@
                       <input class="form-check-input" type="radio" name="pickup_method" id="delivery" value="delivery">
                       <label class="form-check-label" for="delivery">
                         <strong>Antar ke Lokasi</strong>
-                        <div class="text-muted small">+$10 - Kami antar ke alamat Anda</div>
+                        <div class="text-muted small">+Rp10.000 - Kami antar ke alamat Anda</div>
                       </label>
                     </div>
                   </div>
@@ -344,8 +344,8 @@
                 <button type="button" class="btn btn-outline-secondary" id="prevStep3">
                   <i class="fas fa-arrow-left me-2"></i>Kembali
                 </button>
-                <button type="submit" class="btn btn-success" id="submitBooking">
-                  <i class="fas fa-paper-plane me-2"></i>Kirim Booking
+                <button type="submit" class="btn btn-success" id="submitBooking" data-bs-toggle="modal" data-bs-target="#successModal">
+                  <i class="fas fa-paper-plane me-2"></i>Booking
                 </button>
               </div>
             </div>
@@ -376,7 +376,7 @@
                 </div>
                 <div class="price-item">
                   <span>Biaya Antar:</span>
-                  <span id="deliveryFee">$0</span>
+                  <span id="deliveryFee">+Rp10.000</span>
                 </div>
                 <div class="price-item">
                   <span>Durasi:</span>
@@ -404,36 +404,6 @@
               </div>
             </div>
           </div>
-
-          <!-- Help Section -->
-          <div class="help-section mt-4">
-            <div class="help-header">
-              <h6><i class="fas fa-question-circle me-2"></i>Butuh Bantuan?</h6>
-            </div>
-            <div class="help-content">
-              <div class="help-item">
-                <i class="fas fa-phone text-success"></i>
-                <div>
-                  <strong>Telepon</strong>
-                  <div>+1-987-654-3210</div>
-                </div>
-              </div>
-              <div class="help-item">
-                <i class="fab fa-whatsapp text-success"></i>
-                <div>
-                  <strong>WhatsApp</strong>
-                  <div>+1-987-654-3210</div>
-                </div>
-              </div>
-              <div class="help-item">
-                <i class="fas fa-envelope text-success"></i>
-                <div>
-                  <strong>Email</strong>
-                  <div>hello@explorex.com</div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -448,16 +418,13 @@
             <i class="fas fa-check-circle fa-4x text-success"></i>
           </div>
           <h4 class="mb-3">Booking Berhasil!</h4>
-          <p class="text-muted mb-4">Booking Anda telah berhasil dikirim. Kami akan mengirimkan konfirmasi dan detail pembayaran melalui email.</p>
-          <div class="booking-ref mb-4">
-            <strong>Kode Booking: <span class="text-success" id="bookingCode">EXP-2024-001</span></strong>
-          </div>
+          <p class="text-muted mb-4">Anda telah berhasil Booking</p>
           <div class="d-flex gap-2 justify-content-center">
-            <button type="button" class="btn btn-success" onclick="window.location.href='index.html'">
+            <button type="button" class="btn btn-success" onclick="window.location.href='{{ url('catalog') }}'">
               Kembali ke Home
             </button>
-            <button type="button" class="btn btn-outline-success" onclick="window.print()">
-              Cetak Konfirmasi
+            <button type="button" class="btn btn-outline-success" onclick="window.location.href='{{ url('profile/booking-history') }}'">
+              Riwayat Booking
             </button>
           </div>
         </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Booking;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -56,5 +57,26 @@ class ProfileController extends Controller
         $request->session()->regenerateToken();
 
         return Redirect::to('/');
+    }
+
+    /**
+     * Menampilkan riwayat booking user
+     */
+    public function bookingHistory()
+    {
+        $bookings = Booking::with('product')
+            ->where('user_id', auth()->id())
+            ->orderByDesc('created_at')
+            ->get();
+        return view('profile.booking-history', compact('bookings'));
+    }
+
+    /**
+     * Menampilkan detail booking user
+     */
+    public function bookingDetail($id)
+    {
+        $booking = Booking::with('product')->where('user_id', auth()->id())->findOrFail($id);
+        return view('profile.booking-detail', compact('booking'));
     }
 }

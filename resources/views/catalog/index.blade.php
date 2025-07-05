@@ -127,24 +127,14 @@
                             <div class="col-md-4 mb-4">
                                 <div class="product-card">
                                     <div class="product-image">
-                                        <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="img-fluid" />
+                                        <a href="{{ route('catalog.show', $product->id) }}">
+                                            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="img-fluid product-img-contain" style="object-fit:contain; width:100%; height:200px; background:#ffff; border-radius:8px;" />
+                                        </a>
                                         <div class="product-badge">Popular</div>
-                                        <div class="product-actions">
-                                            <button class="btn btn-light btn-sm"><i class="fas fa-heart"></i></button>
-                                            <button class="btn btn-light btn-sm"><i class="fas fa-eye"></i></button>
-                                        </div>
                                     </div>
                                     <div class="product-info">
                                         <div class="product-category">{{ $product->category }}</div>
-                                        <h5 class="product-title">{{ $product->name }}</h5>
-                                        <div class="product-rating">
-                                            <i class="fas fa-star text-warning"></i>
-                                            <i class="fas fa-star text-warning"></i>
-                                            <i class="fas fa-star text-warning"></i>
-                                            <i class="fas fa-star text-warning"></i>
-                                            <i class="fas fa-star text-warning"></i>
-                                            <span class="ms-1">{{ $product->rating }} from (24 reviews)</span>
-                                        </div>
+                                        <h5 class="product-title mb-0">{{ $product->name }}</h5>
                                         <div class="product-price">
                                             <span class="price">Rp{{ number_format($product->price, 0, ',', '.') }}</span>
                                             <span class="price-unit">/hari</span>

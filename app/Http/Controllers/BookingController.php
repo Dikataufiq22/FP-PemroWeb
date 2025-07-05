@@ -72,8 +72,9 @@ class BookingController extends Controller
                 'product_name' => $product['name'],
                 'product_price' => $product['price'],
                 'quantity' => $product['quantity'],
-                'start_date' => '12-07-2025', // Example date, replace with $request->input('start_date') if needed
-                'end_date' => '12-08-2025',
+                // Ambil tanggal mulai dan selesai dari input user
+                'start_date' => $request->input('start_date'),
+                'end_date' => $request->input('end_date'),
                 'pickup_method' => $request->input('pickup_method'),
                 'delivery_address' => $request->input('delivery_address'),
                 'store_location' => $request->input('store_location'),
@@ -86,7 +87,8 @@ class BookingController extends Controller
                 'emergency_phone' => $request->input('emergency_phone'),
                 'special_notes' => $request->input('special_notes'),
                 'status' => 'pending',
-                'total_price' => 12000,
+                // Simpan total_price dari input jika ada, fallback ke 0
+                'total_price' => $request->input('total_price', 0),
             ];
     
             // Create the booking

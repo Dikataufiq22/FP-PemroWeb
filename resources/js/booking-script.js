@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
     const deliveryAddressDiv = document.getElementById("deliveryAddress");
     const storeLocationDiv = document.getElementById("storeLocation");
+    const bookingForm = document.getElementById("bookingForm");
 
     function init() {
         setupEventListeners();
@@ -49,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
         prevStep3.addEventListener("click", () => goToStep(2));
 
         // Form submission
-        submitBooking.addEventListener("click", handleSubmit);
+        bookingForm.addEventListener("submit", handleSubmit);
 
         // Date changes
         startDate.addEventListener("change", calculateDuration);
@@ -267,7 +268,7 @@ document.addEventListener("DOMContentLoaded", () => {
             (sum, item) => sum + item.price * item.quantity,
             0
         );
-        const delivery = document.getElementById("delivery")?.checked ? 10 : 0;
+        const delivery = document.getElementById("delivery")?.checked ? 10000 : 0;
         const total = subtotal * Math.max(rentalDays, 1) + delivery;
         const deposit = Math.round(total * 0.5);
 
@@ -403,7 +404,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function handleSubmit(e) {
         e.preventDefault();
-        const bookingForm = document.getElementById("bookingForm");
         const responseMessage = document.getElementById("responseMessage");
         const agreeTerms = document.getElementById("agreeTerms").checked;
         const agreeDeposit = document.getElementById("agreeDeposit").checked;
@@ -411,55 +411,58 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!agreeTerms || !agreeDeposit) {
             alert("Silakan setujui syarat dan ketentuan untuk melanjutkan.");
             return;
-        } else {
-            console.log("Form submitted");
-            // Gather form data
-            const formData = new FormData(bookingForm);
+        }
 
-            // Convert FormData to a JSON object
-            const data = {};
-            formData.forEach((value, key) => {
-                data[key] = value;
-            });
-            data["products"] = selectedItems.map((item) => {
-                return {
-                    id: item.id,
-                    name: item.name,
-                    price: item.price,
-                    quantity: item.quantity,
-                };
-            });
-            data['total_price'] = document.getElementById("totalPrice").textContent;
+        // Ambil data form
+        const formData = new FormData(bookingForm);
+        const storeSelect = document.getElementById("storeSelect");
+        const data = {};
+        formData.forEach((value, key) => {
+            data[key] = value;
+        });
 
-            console.log(data); // Log data for debugging
+        // Kirim store_location ke backend
+        data["store_location"] = storeSelect ? storeSelect.options[storeSelect.selectedIndex].text : "";
 
-            // Send AJAX request
-            fetch("/add-booking", {
-                method: "POST",
-                headers: {
-                    "Accept":"application/json",
-                    "Content-Type": "application/json",
-                    "X-CSRF-TOKEN": document
-                        .querySelector('meta[name="csrf-token"]')
-                        .getAttribute("content"),
-                },  
-                body: JSON.stringify(data),
+        // Kirim produk
+        data["products"] = selectedItems.map((item) => {
+            return {
+                id: item.id,
+                name: item.name,
+                price: item.price,
+                quantity: item.quantity,
+            };
+        });
+
+        // Kirim total_price sebagai angka
+        let totalPriceText = document.getElementById("totalPrice").textContent;
+        let totalPrice = parseInt(totalPriceText.replace(/[^\d]/g, ""));
+        data['total_price'] = isNaN(totalPrice) ? 0 : totalPrice;
+
+        // AJAX POST
+        fetch("/add-booking", {
+            method: "POST",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+                "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
+            },
+            body: JSON.stringify(data),
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    return response.json().then((err) => { throw err; });
+                }
+                return response.json();
             })
-                .then((response) => {
-                    if (!response.ok) {
-                        return response.json().then((err) => {
-                            throw err;
-                        });
-                    }
-                    return response.json();
-                })
-                .then((response) => {
-                    // Handle success
-                    responseMessage.innerHTML = `<p>${response.message}</p>`;
-                    console.log(response.bookings); // Log bookings for debugging
-                })
-                .catch((error) => {
-                    // Handle error
+            .then((response) => {
+                // Success: tampilkan modal sukses
+                const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                successModal.show();
+                if (responseMessage) responseMessage.innerHTML = `<p>${response.message}</p>`;
+            })
+            .catch((error) => {
+                if (responseMessage) {
                     if (error.errors) {
                         let errorMessage = "<ul>";
                         for (const key in error.errors) {
@@ -468,49 +471,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         errorMessage += "</ul>";
                         responseMessage.innerHTML = errorMessage;
                     } else {
-                        responseMessage.innerHTML =
-                            "<p>An unexpected error occurred.</p>";
+                        responseMessage.innerHTML = "<p>An unexpected error occurred.</p>";
                     }
-                });
-        }
-        // Generate booking code
-        // const bookingCode =
-        //     "EXP-" +
-        //     new Date().getFullYear() +
-        //     "-" +
-        //     String(Math.floor(Math.random() * 10000)).padStart(3, "0");
-        // document.getElementById("bookingCode").textContent = bookingCode;
+                }
+            });
     }
-
-    // function handleSubmit(e) {
-    //     e.preventDefault();
-
-    //     const agreeTerms = document.getElementById("agreeTerms").checked;
-    //     const agreeDeposit = document.getElementById("agreeDeposit").checked;
-
-    //     if (!agreeTerms || !agreeDeposit) {
-    //         alert("Silakan setujui syarat dan ketentuan untuk melanjutkan.");
-    //         return;
-    //     }
-
-    //     // Generate booking code
-    //     const bookingCode =
-    //         "EXP-" +
-    //         new Date().getFullYear() +
-    //         "-" +
-    //         String(Math.floor(Math.random() * 10000)).padStart(3, "0");
-    //     document.getElementById("bookingCode").textContent = bookingCode;
-
-    //     // Show success modal
-    //     const successModal = document.getElementById("successModal");
-    //     successModal.style.display = "block";
-
-    //     // Clear form after successful submission
-    //     setTimeout(() => {
-    //         clearBooking();
-    //         successModal.style.display = "none";
-    //     }, 2000);
-    // }
 
     function filterProducts() {
         const searchTerm = document

@@ -17,4 +17,9 @@ class ProductController extends Controller
         $products = Product::latest()->get(); // Example query
         return view('catalog.index', compact('products'));
     }
+    public function show($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('product-detail', compact('product'));
+    }
 }

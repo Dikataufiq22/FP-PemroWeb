@@ -10,7 +10,7 @@
                     <div class="row align-items-center min-vh-100 pt-5">
                         <div class="col-lg-6">
                             <h1 class="display-4 fw-bold text-white mb-4">
-                                Solusi Praktis untuk kebutuhan Outdoor-mu.
+                                Solusi Praktis untuk kebutuhan Outdoormu.
                             </h1>
                             <p class="lead text-white mb-4">
                                 Temukan pengalaman outdoor yang tak terlupakan dengan peralatan berkualitas tinggi.
@@ -61,7 +61,7 @@
                         <img src="{{ asset('assets/bg2.jpg') }}" alt="Tentang Kami" class="img-fluid rounded">
                     </div>
                     <div class="col-lg-6 text-center">
-                        <h2 class="fw-bold mb-4 text-center display-6">Tentang Kami</h2>
+                        <h2 class="fw-bold mb-4 text-center display-6">About Us</h2>
                         <p class="mb-3 text-justify" style="text-indent: 2em;">
                             <strong>ExploreX</strong> adalah penyedia layanan sewa perlengkapan outdoor terpercaya yang berdedikasi 
                             untuk mendukung petualangan Anda di alam bebas. Kami menyediakan berbagai perlengkapan outdoor berkualitas 
@@ -88,7 +88,7 @@
             <div class="container spacing-container">
                 <div class="row mb-5">
                     <div class="col-lg-8">
-                        <h2 class="fw-bold mb-3">Choose the item that suits you</h2>
+                        <h2 class="fw-bold mb-3 display-6">Choose the item that suits you</h2>
                     </div>
                     <div class="col-lg-4 text-lg-end">
                         <a href="/catalog" class="text-success text-decoration-none">
@@ -96,26 +96,27 @@
                         </a>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                     @foreach ($products as $product)
-                        <div class="col-lg-4 mb-4">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center">
-                                <img src="{{ asset('storage/' . $product->image)  }}" alt={{$product->name}} class="img-fluid mb-3">
-                                <h5 class="card-title">{{$product->name}}</h5>
-                                <div class="d-flex justify-content-center align-items-center mb-3">
-                                    <span class="text-success fw-bold fs-4">Rp{{$product->price}}</span>
-                                    <span class="text-muted ms-2">/day</span>
+                        <div class="col">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center d-flex flex-column">
+                                    <div class="mb-3" style="height:220px;display:flex;align-items:center;justify-content:center;background:#fff;">
+                                        <img src="{{ $product->image ? asset('storage/' . $product->image) : asset('assets/default-product.png') }}" alt="{{$product->name}}" style="max-height:200px;max-width:100%;object-fit:contain;">
+                                    </div>
+                                    <h5 class="card-title">{{$product->name}}</h5>
+                                    <div class="d-flex justify-content-center align-items-center mb-3">
+                                        <span class="text-success fw-bold fs-4">Rp{{ number_format($product->price, 0, ',', '.') }}</span>
+                                        <span class="text-muted ms-2">/day</span>
+                                    </div>
+                                    <div class="d-flex justify-content-center gap-2 mb-3">
+                                        <span class="badge bg-light text-dark">{{$product->brand}}</span>
+                                        <span class="badge bg-light text-dark">{{$product->status}}</span>
+                                    </div>
+                                    <a href="/product-detail/{{$product->id}}" class="btn btn-success w-100 mt-auto">View Details</a>
                                 </div>
-                                <div class="d-flex justify-content-center gap-2 mb-3">
-                                    <span class="badge bg-light text-dark">{{$product->brand}}</span>
-                                    <span class="badge bg-light text-dark">{{$product->status}}</span>
-                                </div>
-                                <button class="btn btn-success w-100" onclick="viewProduct('borneo-tent')">View
-                                    Details</button>
                             </div>
                         </div>
-                    </div>
                     @endforeach
                 </div>
             </div>
@@ -124,7 +125,7 @@
         <!-- How to Rent Process -->
         <section id="how-to-rent" class="py-5 spacing-container">
             <div class="container">
-                <h2 class="text-center fw-bold mb-5">How to Rent</h2>
+                <h2 class="text-center fw-bold mb-5 display-6">How to Rent</h2>
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="process-step d-flex mb-4">
@@ -133,12 +134,11 @@
                                 1
                             </div>
                             <div>
-                                <h5 class="fw-bold">Select the required items</h5>
+                                <h5 class="fw-bold">Pilih item yang diperlukan</h5>
                                 <p class="text-muted">
-                                    Browse our catalog and select the outdoor equipment you need, such as Tents &
-                                    Mattresses, Sleeping Bags,
-                                    Carriers & Backpacks, Bags, Portable Cooking Equipment, and other equipment according to
-                                    your adventure needs.
+                                    Jelajahi katalog kami dan pilih perlengkapan luar ruangan yang Anda butuhkan, seperti Tenda &
+                                    Kasur, Kantong Tidur, Tas Pembawa & Ransel, Tas, Peralatan Memasak Portabel, dan perlengkapan 
+                                    lainnya sesuai dengankebutuhan petualangan Anda.
                                 </p>
                             </div>
                         </div>
@@ -148,10 +148,11 @@
                                 2
                             </div>
                             <div>
-                                <h5 class="fw-bold">Check Availability</h5>
+                                <h5 class="fw-bold">Periksa Ketersediaan</h5>
                                 <p class="text-muted">
-                                    Check the availability of equipment on your desired rental date. We will show you
-                                    real-time availability and help you choose the perfect gear for your trip.
+                                    Periksa ketersediaan peralatan pada tanggal sewa yang Anda 
+                                    inginkan. Kami akan menunjukkan ketersediaan secara real-time 
+                                    dan membantu Anda memilih peralatan yang sempurna untuk perjalanan Anda.
                                 </p>
                             </div>
                         </div>
@@ -161,10 +162,10 @@
                                 3
                             </div>
                             <div>
-                                <h5 class="fw-bold">Make a Booking</h5>
+                                <h5 class="fw-bold">Buat Pemesanan</h5>
                                 <p class="text-muted">
-                                    Fill in the booking form, then fill in the booking details.
-                                    Choose payment method & secure your rental. Receive a confirmation email.
+                                    Isi formulir pemesanan, kemudian isi detail pemesanan. Pilih metode pembayaran & 
+                                    amankan penyewaan Anda. Terima email konfirmasi.
                                 </p>
                             </div>
                         </div>
@@ -176,10 +177,10 @@
                                 4
                             </div>
                             <div>
-                                <h5 class="fw-bold">Confirmation</h5>
+                                <h5 class="fw-bold">Konfirmasi</h5>
                                 <p class="text-muted">
-                                    After filling out the form, you will receive confirmation via email.
-                                    We will also call you 1 day before for pickup or delivery.
+                                   Setelah mengisi formulir, Anda akan menerima konfirmasi melalui email.
+                                    Kami juga akan menghubungi Anda 1 hari sebelumnya untuk pengambilan atau pengiriman.
                                 </p>
                             </div>
                         </div>
@@ -189,11 +190,11 @@
                                 5
                             </div>
                             <div>
-                                <h5 class="fw-bold">Pick up the Item</h5>
+                                <h5 class="fw-bold">Ambil barang itu</h5>
                                 <p class="text-muted">
-                                    Come to our location on the agreed date or wait for the
-                                    delivery if you choose the delivery option. Our team will provide
-                                    a brief explanation of how to use the equipment.
+                                    Datanglah ke lokasi kami pada tanggal yang disepakati atau tunggu pengiriman 
+                                    jika Anda memilih opsi pengiriman. Tim kami akan memberikan penjelasan singkat 
+                                    tentang cara menggunakan peralatan tersebut.
                                 </p>
                             </div>
                         </div>
@@ -203,10 +204,10 @@
                                 6
                             </div>
                             <div>
-                                <h5 class="fw-bold">Enjoy Your Adventure!</h5>
+                                <h5 class="fw-bold">Nikmati Petualangan Anda!</h5>
                                 <p class="text-muted">
-                                    Enjoy your outdoor adventure! Create unforgettable memories. If there are any
-                                    problems with the equipment, our team is ready to help.
+                                   Nikmati petualangan luar ruangan Anda! Buat kenangan yang tak terlupakan. 
+                                   Jika ada masalah dengan peralatan, tim kami siap membantu.
                                 </p>
                             </div>
                         </div>
@@ -216,58 +217,49 @@
         </section>
 
         <!-- Statistics -->
+        <!-- Facts in Numbers -->
         <section class="py-5 bg-success text-white">
-            <div class="container spacing-container">
-                <div class="text-center mb-5">
-                    <h2 class="fw-bold">Facts in Numbers</h2>
-                    <p class="#">We believe that our track record speaks for itself, and we are committed to providing
-                        reliable, quality, and user-friendly outdoor equipment rental services.</p>
-                </div>
+            <div class="container text-center" data-aos="fade-up">
+                <h2 class="fw-bold mb-4 display-6">Facts in Numbers</h2>
+                <p class="lead mb-5">Rekam jejak kami menunjukkan kualitas layanan dan kepuasan pelanggan kami.</p>
                 <div class="row">
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="card bg-white text-dark h-100 border-0">
-                            <div class="card-body text-center">
-                                <i class="fas fa-users fa-2x mb-3"></i>
-                                <h3 class="fw-bold">540+</h3>
-                                <p class="mb-0">Happy Customers</p>
-                            </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="bg-white text-dark p-4 rounded shadow">
+                            <i class="fas fa-users fa-2x mb-2 text-success"></i>
+                            <h3 class="fw-bold">540+</h3>
+                            <p>Pelanggan Bahagia</p>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="card bg-white text-dark h-100 border-0">
-                            <div class="card-body text-center">
-                                <i class="fas fa-box fa-2x mb-3"></i>
-                                <h3 class="fw-bold">200+</h3>
-                                <p class="mb-0">Equipment Available</p>
-                            </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="bg-white text-dark p-4 rounded shadow">
+                            <i class="fas fa-box fa-2x mb-2 text-success"></i>
+                            <h3 class="fw-bold">200+</h3>
+                            <p>Equipment Available</p>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="card bg-white text-dark h-100 border-0">
-                            <div class="card-body text-center">
-                                <i class="fas fa-calendar fa-2x mb-3"></i>
-                                <h3 class="fw-bold">2+</h3>
-                                <p class="mb-0">Years of Experience</p>
-                            </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="bg-white text-dark p-4 rounded shadow">
+                            <i class="fas fa-calendar fa-2x mb-2 text-success"></i>
+                            <h3 class="fw-bold">2+</h3>
+                            <p>Years of Experience</p>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="card bg-white text-dark h-100 border-0">
-                            <div class="card-body text-center">
-                                <i class="fas fa-star fa-2x mb-3"></i>
-                                <h3 class="fw-bold">24</h3>
-                                <p class="mb-0">Hour Support</p>
-                            </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="bg-white text-dark p-4 rounded shadow">
+                            <i class="fas fa-star fa-2x mb-2 text-success"></i>
+                            <h3 class="fw-bold">24</h3>
+                            <p>Hour Support</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+    </div>
 
         <!-- FAQ -->
         <section id="faq" class="py-5 spacing-container">
             <div class="container">
-                <h2 class="fw-bold mb-5">Pertanyaan yang Sering Diajukan</h2>
+                <h2 class="fw-bold mb-5 display-6">Frequently Asked Questions</h2>
                 <div class="accordion" id="faqAccordion">
                     <div class="accordion-item">
                         <h2 class="accordion-header">
@@ -341,18 +333,17 @@
                     </div>
                 </div>
                 <div class="text-center mt-4">
-                    <button class="btn btn-success" onclick="sendToWA()">Contact Us</button>
+                    <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-success">
+                        Contact Us
+                    </a>
                 </div>
             </div>
         </section>
-
-
-
-
     </div>
 @endsection
 
 @push('styles')
+<link rel="stylesheet" href="{{ asset('resources/css/styles.css') }}">
 @endpush
 
 @push('scripts')

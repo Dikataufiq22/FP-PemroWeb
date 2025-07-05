@@ -49,7 +49,7 @@
                         <a class="nav-link" href="/#how-to-rent">How to Rent</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/#contact">Contact</a>
+                        <a class="nav-link" href="/#faq">Contact</a>
                     </li>
                 </ul>
 
@@ -80,6 +80,9 @@
                                         <x-slot name="content">
                                             <x-dropdown-link :href="route('profile.edit')">
                                                 {{ __('Profile') }}
+                                            </x-dropdown-link>
+                                            <x-dropdown-link :href="route('profile.booking-history')">
+                                                <i class=""></i>History
                                             </x-dropdown-link>
 
                                             <!-- Authentication -->
@@ -131,6 +134,9 @@
                                     <x-responsive-nav-link :href="route('profile.edit')">
                                         {{ __('Profile') }}
                                     </x-responsive-nav-link>
+                                    <x-responsive-nav-link :href="route('profile.booking-history')">
+                                        <i class=""></i>History
+                                    </x-responsive-nav-link>
 
                                     <!-- Authentication -->
                                     <form method="POST" action="{{ route('logout') }}">
@@ -158,21 +164,21 @@
     </nav>
 
     <!-- Page Content -->
-    <main class="mt-24">
+    <main class="mt-24"></main>
         @yield('contents')
     </main>
 
     <!-- Footer -->
     <footer class="bg-success text-white py-5">
-        <div class="container spacing-container">
+        <div class="container px-4 px-lg-5 spacing-container">
             <div class="row">
                 <div class="col-lg-4 mb-4">
                     <h5 class="fw-bold mb-3">
-                        <i></i>ExploraX
+                        <img src="{{ asset('assets/W-Logo.png') }}" alt="ExploraX" height="40">
                     </h5>
                     <p class="mb-3">
-                        ExploraX is a trusted outdoor equipment rental service. With proper preparation, we
-                        provide all the equipment you need for your outdoor adventure. Let's explore nature together!
+                        ExploraX adalah layanan penyewaan peralatan luar ruangan yang terpercaya. 
+                        Dengan persiapan yang tepat, kami menyediakan semua peralatan yang Anda butuhkan untuk petualangan luar ruangan Anda. Mari kita menjelajahi alam bersama!
                     </p>
                     <div class="d-flex gap-3">
                         <a href="#" class="text-white"><i class="fab fa-facebook fa-lg"></i></a>
