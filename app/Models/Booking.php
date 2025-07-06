@@ -40,4 +40,10 @@ class Booking extends Model
     {
         return $this->belongsTo(Product::class);
     }
+
+    // Define the relationship with the Review model
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
 }

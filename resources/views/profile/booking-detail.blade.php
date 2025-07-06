@@ -64,5 +64,39 @@
             </div>
         </div>
     </div>
+
+    @if($booking->status === 'confirmed' && !$booking->reviews->where('user_id', auth()->id())->where('product_id', $booking->product_id)->count())
+    <div class="card mt-4">
+        <div class="card-header bg-light">
+            <h5 class="mb-0 text-success">Beri Review Produk</h5>
+        </div>
+        <div class="card-body">
+            @if(session('success'))
+                <div class="alert alert-success">{{ session('success') }}</div>
+            @elseif(session('error'))
+                <div class="alert alert-danger">{{ session('error') }}</div>
+            @endif
+            <form action="{{ route('review.store') }}" method="POST">
+                @csrf
+                <input type="hidden" name="product_id" value="{{ $booking->product_id }}">
+                <input type="hidden" name="booking_id" value="{{ $booking->id }}">
+                <div class="mb-3">
+                    <label class="form-label">Rating</label>
+                    <select name="rating" class="form-select" required>
+                        <option value="">Pilih rating</option>
+                        @for($i=5;$i>=1;$i--)
+                            <option value="{{ $i }}">{{ $i }} Bintang</option>
+                        @endfor
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Review</label>
+                    <textarea name="review" class="form-control" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-success">Kirim Review</button>
+            </form>
+        </div>
+    </div>
+    @endif
 </div>
 @endsection

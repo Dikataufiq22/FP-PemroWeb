@@ -67,7 +67,8 @@ class ProfileController extends Controller
         $bookings = Booking::with('product')
             ->where('user_id', auth()->id())
             ->orderByDesc('created_at')
-            ->get();
+            ->get()
+            ->groupBy('order_id');
         return view('profile.booking-history', compact('bookings'));
     }
 

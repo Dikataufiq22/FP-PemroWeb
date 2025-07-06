@@ -32,5 +32,6 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/product-detail/{id}', [ProductController::class, 'show'])->name('product.detail');
+Route::post('/review', [\App\Http\Controllers\ReviewController::class, 'store'])->name('review.store');
 
 require __DIR__.'/auth.php';

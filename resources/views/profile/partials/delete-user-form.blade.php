@@ -2,10 +2,10 @@
     <header>
         <h2 class="text-lg font-medium text-red-700 flex items-center gap-2">
             <i class="fas fa-exclamation-triangle text-red-500"></i>
-            {{ __('Delete Account') }}
+            {{ __('Hapus Akun') }}
         </h2>
         <p class="mt-1 text-sm text-gray-600">
-            {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.') }}
+            {{ __('Semua sumber daya dan data yang ada akan dihapus secara permanen') }}
         </p>
     </header>
 
@@ -15,7 +15,7 @@
             x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')"
             class="w-full py-2 text-lg"
         >
-            <i class="fas fa-user-slash me-2"></i>{{ __('Delete Account') }}
+            <i class="fas fa-user-slash me-2"></i>{{ __('Hapus Akun') }}
         </x-danger-button>
     </div>
 
@@ -27,12 +27,12 @@
             <div class="flex items-center gap-3 mb-3">
                 <i class="fas fa-exclamation-circle text-3xl text-red-500"></i>
                 <h2 class="text-lg font-bold text-red-700">
-                    {{ __('Are you sure you want to delete your account?') }}
+                    {{ __('Apakah Anda yakin ingin menghapus akun Anda??') }}
                 </h2>
             </div>
 
             <p class="mt-1 text-sm text-gray-700 mb-4">
-                {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.') }}
+                {{ __('Setelah akun Anda dihapus, semua sumber daya dan data yang terkait akan dihapus secara permanen. Silakan masukkan kata sandi Anda untuk mengonfirmasi bahwa Anda ingin menghapus akun Anda secara permanen.') }}
             </p>
 
             <div class="mt-6">
@@ -49,10 +49,10 @@
 
             <div class="mt-6 flex justify-end gap-2">
                 <x-secondary-button x-on:click="$dispatch('close')">
-                    <i class="fas fa-times me-1"></i>{{ __('Cancel') }}
+                    <i class="fas fa-times me-1"></i>{{ __('Batalkan') }}
                 </x-secondary-button>
                 <x-danger-button class="ms-3">
-                    <i class="fas fa-trash me-1"></i>{{ __('Delete Account') }}
+                    <i class="fas fa-trash me-1"></i>{{ __('Hapus Akun') }}
                 </x-danger-button>
             </div>
         </form>

@@ -197,7 +197,7 @@
                       <input class="form-check-input" type="radio" name="pickup_method" id="delivery" value="delivery">
                       <label class="form-check-label" for="delivery">
                         <strong>Antar ke Lokasi</strong>
-                        <div class="text-muted small">+Rp10.000 - Kami antar ke alamat Anda</div>
+                        <div class="text-muted small">+Rp10.000 - Hanya sekitaran Jl. Congcat No. 123, Yogyakarta (Radius 5KM)</div>
                       </label>
                     </div>
                   </div>
