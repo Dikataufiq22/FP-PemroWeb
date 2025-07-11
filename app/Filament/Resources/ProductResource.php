@@ -111,9 +111,10 @@ class ProductResource extends Resource
                         ->label('Unggah Gambar Produk')
                         ->image()
                         ->imageEditor()
-                        ->directory('products')
+                        ->directory('assets') // simpan langsung ke public/assets
                         ->disk('public')
                         ->visibility('public')
+                        ->preserveFilenames()
                         ->helperText('Gunakan gambar berkualitas tinggi dan sesuai produk.'),
                 ]),
         ]);
@@ -127,7 +128,9 @@ class ProductResource extends Resource
                     ->disk('public')
                     ->label('Foto')
                     ->square()
-                    ->size(50),
+                    ->size(50)
+                    ->getStateUsing(fn ($record) => asset('assets/' . basename($record->image))),
+
 
                 TextColumn::make('name')
                     ->label('Nama Produk')
