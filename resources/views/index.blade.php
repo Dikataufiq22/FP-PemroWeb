@@ -333,7 +333,7 @@
                     </div>
                 </div>
                 <div class="text-center mt-4">
-                    <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-success">
+                    <a href="https://wa.me/62895622357048" target="_blank" class="btn btn-success">
                         Contact Us
                     </a>
                 </div>
